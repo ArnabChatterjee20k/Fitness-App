@@ -20,6 +20,11 @@ const BodyPart = ({ item, setBodyPart, bodyPart }) => {
                     gap: "47px"
                 }
             }
+            onClick={()=>{
+                setBodyPart(item)
+                // scrollin down to exercise component of Home page
+                window.scrollTo({top:1800,left:100,behavior:"smooth"})
+            }}
         >
             <img src={Icon} alt="dumbail" style={{ width: "40px", height: "40px" }} />
             <Typography fontSize="24px" fontWeight="bold" color="#3a1212">{item}</Typography>
