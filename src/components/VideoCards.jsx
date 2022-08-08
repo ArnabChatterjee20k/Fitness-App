@@ -25,7 +25,7 @@ export const VideoCards = ({ channelName, time, image, link, description }) => {
             />
             <CardContent>
                 {
-                    description.split("|").map((item, index) => (
+                    description && description.split("|").map((item, index) => (
                         <Typography key={index}>
                             {item}
                         </Typography>
