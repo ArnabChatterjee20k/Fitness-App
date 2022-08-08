@@ -3,6 +3,7 @@ import Pagination from '@mui/material/Pagination'
 import { Box, Stack, Typography } from '@mui/material'
 import { exerciseOptions, fetchData } from '../utils/fetchData'
 import ExerciseCard from './ExerciseCard'
+import { Loader } from './Loader'
 
 const Exercises = ({ exercises, setExercises, bodyPart }) => {
   const [currentPage, setCurrentPage] = useState(1)
@@ -49,10 +50,10 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
       <Stack direction="row" sx={{ gap: { lg: "110px", xs: "50px" } }}
         flexWrap="wrap" justifyContent="center">
         {
-          currentExercises.map((exercise, index) => {
+          currentExercises.length ? currentExercises.map((exercise, index) => {
             // return exercise.name
             return <ExerciseCard key={index} exercise={exercise} />
-          })
+          } ): <Typography variant="h6">Plz select any body part or search something</Typography>
         }
       </Stack>
       <Stack mt="100px" alignItems="center">
