@@ -1,8 +1,9 @@
 import React from 'react'
 import { VideoCards } from './VideoCards'
 import { Box, Stack, Typography } from '@mui/material'
-import Grid from '@mui/material/Grid';
-import shadows from '@mui/material/styles/shadows';
+import Grid from '@mui/material/Grid'
+import LoadingCard from './LoadingCard'
+
 const ExerciseVideos = ({ exerciseVideos, name }) => {
   return (
     <Box sx={{ marginTop: { lg: "200px", xs: "20px" } }} p="20px">
@@ -15,8 +16,9 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
           gap: { lg: "110px", xs: "0" }
         }}
       >
+        
         <Grid container gap={5} width="100%" justifyContent="center">
-
+        {exerciseVideos.length == 0 && <LoadingCard/>}
         {exerciseVideos.length != 0 && exerciseVideos?.slice(0, 6).map((item, index) => {
           return <Grid sx={{boxShadow:1,":hover":{boxShadow:2,transform:"translateY(-10px)"}}}  item md={3}>
              <VideoCards
